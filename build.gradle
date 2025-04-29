@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group = '' +
+        '.selenium'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Selenium
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.31.0'
+    // JUnit para pruebas
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.12.0'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    // Cucumber para Gherkin
+    testImplementation 'io.cucumber:cucumber-java:7.22.1'
+    testImplementation 'io.cucumber:cucumber-junit:7.22.1'
+}
+
+test {
+    useJUnit()
+    systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
+}
